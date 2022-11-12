@@ -62,3 +62,4 @@
 ..\obj\md_s_curve.o: D:\Keil5 5.36\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\md_s_curve.o: ..\CONFIG\TASK\tk_fsm.h
 ..\obj\md_s_curve.o: ..\CONFIG\TASK\tk_Information.h
+..\obj\md_s_curve.o: ..\CONFIG\TASK\tk_show.h

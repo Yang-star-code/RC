@@ -41,6 +41,7 @@
 "..\obj\md_s_curve.o"
 "..\obj\tk_fsm.o"
 "..\obj\tk_information.o"
+"..\obj\tk_show.o"
 --strict --scatter "..\OBJ\LED.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

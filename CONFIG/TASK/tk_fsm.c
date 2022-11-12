@@ -14,6 +14,7 @@ float Initial_Height=3;//初始高度
 float total_time;
 
 float i=1.0;
+int task=0;
 //Current_Height（0-50）   Before_Style_Time   Style_State 		Lifting_Speed 				After_Style_Time 
 //针距离孔的高度				下降前停留时间		是否下降				下降速度	  	  		下降后停留时间
 POINTS record_points[10] = 
@@ -164,6 +165,7 @@ void FSM(void *pvParameters)
 						vTaskDelay(500);//The pause time of each point.
             for(n=0;n<Record_time;n++)
 					{
+						task=n;
 						 XY_Action(n);//
 						 vTaskDelay(500);
 					}

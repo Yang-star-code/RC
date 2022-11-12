@@ -24,7 +24,7 @@
 //хннЯ
 #include "tk_fsm.h"
 #include "tk_Information.h"
-
+#include "tk_show.h"
 
 #endif
 

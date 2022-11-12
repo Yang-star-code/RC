@@ -313,7 +313,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>2</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -693,6 +693,16 @@
               <FileName>tk_Information.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\CONFIG\TASK\tk_Information.h</FilePath>
+            </File>
+            <File>
+              <FileName>tk_show.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CONFIG\TASK\tk_show.c</FilePath>
+            </File>
+            <File>
+              <FileName>tk_show.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\CONFIG\TASK\tk_show.h</FilePath>
             </File>
           </Files>
         </Group>

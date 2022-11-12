@@ -62,3 +62,4 @@
 ..\obj\bsp_ads1115.o: D:\Keil5 5.36\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\bsp_ads1115.o: ..\CONFIG\TASK\tk_fsm.h
 ..\obj\bsp_ads1115.o: ..\CONFIG\TASK\tk_Information.h
+..\obj\bsp_ads1115.o: ..\CONFIG\TASK\tk_show.h

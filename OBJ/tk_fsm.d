@@ -62,4 +62,5 @@
 ..\obj\tk_fsm.o: D:\Keil5 5.36\ARM\ARMCC\Bin\..\include\math.h
 ..\obj\tk_fsm.o: ..\CONFIG\TASK\tk_fsm.h
 ..\obj\tk_fsm.o: ..\CONFIG\TASK\tk_Information.h
+..\obj\tk_fsm.o: ..\CONFIG\TASK\tk_show.h
 ..\obj\tk_fsm.o: ..\CONFIG\BSP\picture.h

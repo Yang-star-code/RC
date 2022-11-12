@@ -2,6 +2,7 @@
 
 TaskHandle_t startTaskHandle;
 TaskHandle_t Information_Handle;
+
 void startTask(void *pvParameters);
 void BSP_INIT(void);//先硬件初始化
    
@@ -20,8 +21,9 @@ void startTask(void *pvParameters)
 {
 	taskENTER_CRITICAL();										  //进入临界区
     xTaskCreate(FSM,         "FSM"        , 500, NULL, 4, NULL);  //状态机任务
+	  xTaskCreate(Show,         "Show"       , 500, NULL, 6, NULL);  //状态机任务
 		xTaskCreate(Information, "Information", 500, NULL, 5, &Information_Handle);  //ADS1115读取示数OLED打印信息    
- 	vTaskDelete(startTaskHandle);                                 //删除任务
+ 	  vTaskDelete(startTaskHandle);                                 //删除任务
 	taskEXIT_CRITICAL();		                                  //退出临界区
 }	
 

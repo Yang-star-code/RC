@@ -180,14 +180,14 @@
           <Type>0</Type>
           <LineNumber>112</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134221064</Address>
+          <Address>134224662</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>1</BreakIfRCount>
-          <Filename>F:\Robocup楠ㄧ\楠ㄧ浠ｇ爜2022\CONFIG\TASK\tk_fsm.c</Filename>
+          <Filename>F:\Robocup楠ㄧ\楠ㄧ浠ｇ爜2022\RC\CONFIG\TASK\tk_fsm.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression>\\LED\../CONFIG/TASK/tk_fsm.c\112</Expression>
         </Bp>
@@ -1039,6 +1039,30 @@
       <bDave2>0</bDave2>
       <PathWithFileName>..\CONFIG\TASK\tk_Information.h</PathWithFileName>
       <FilenameWithoutPath>tk_Information.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>10</GroupNumber>
+      <FileNumber>55</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\CONFIG\TASK\tk_show.c</PathWithFileName>
+      <FilenameWithoutPath>tk_show.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>10</GroupNumber>
+      <FileNumber>56</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\CONFIG\TASK\tk_show.h</PathWithFileName>
+      <FilenameWithoutPath>tk_show.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
