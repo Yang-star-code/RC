@@ -7,8 +7,6 @@ void Show(void *pvParameters)
 	u8 strong2[100] = {0};
 	while(1)
 	{
-		
-		
 		sprintf((char *)strong2,"%d",task+1);//0300  
 		OLED_ShowString   (0,0,strong2,16);
 		
