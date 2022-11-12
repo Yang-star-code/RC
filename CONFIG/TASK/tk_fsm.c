@@ -371,24 +371,24 @@ void Z_Action(int Current_Height,int Before_Style_Time,int Style_State,int Lifti
 {
 	float Initial_Time;
 	int pre_time,current_height;
-	current_height=Current_Height+30;
+	current_height=Current_Height;
 	Hight_Control(current_height,Lifting_Speed);
-	pre_time=total_time/80*(current_height-25);
-	Initial_Time=total_time/80*25;
+	//pre_time=total_time/80*(current_height-25);
+	Initial_Time=total_time/40*current_height;
 	if(Style_State==1)
 	{
 		vTaskDelay(Before_Style_Time);
 		vTaskDelay(100);
 		Z_PWM_S_Output(BACKWARD,10,Lifting_Speed);
 		R_PWM_S_Output(BACKWARD,10,50);
-		vTaskDelay(pre_time);
+		vTaskDelay(Initial_Time);
 		Z_PWM_S_Output(BACKWARD,0,0);
 		vTaskDelay(After_Style_Time);//wait 2s and lift
 		Z_PWM_S_Output(UPWARD,10,Lifting_Speed);
 		vTaskDelay(Initial_Time);
 		Z_PWM_S_Output(UPWARD,0,0);
 		R_PWM_S_Output(UPWARD,0,0);
-		Initial_Height=10;
+		//Initial_Height=10;
 	}
 	else
 	{
