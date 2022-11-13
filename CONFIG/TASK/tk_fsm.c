@@ -39,8 +39,12 @@ POINTS record_points[10] =
 	
 	10,		2000,		0,		100,		2000,		{0},//c
 
+	
+	
 
 };
+
+
 void XY_Action(int n)
 {
 	//到达位置
@@ -106,6 +110,7 @@ void FSM(void *pvParameters)
 		if(AIR_R_SHORT>=1900&&AIR_R_LONG>=1900)
     {
         RobotState.MovingState=Display_Speed;//只开启显示速度和调节自转速度的任务
+			  vTaskSuspend(Show_Handle);
     }
 		else 
 		{
@@ -158,6 +163,7 @@ void FSM(void *pvParameters)
 //--------------------------------------Switch 
         case SHOW:
         {
+					  vTaskResume(Show_Handle);
             if(RobotState.RecordState.Show_Switch==Ok)
         {
             int n;

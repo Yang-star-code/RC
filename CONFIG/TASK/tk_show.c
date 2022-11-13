@@ -5,6 +5,7 @@ extern POINTS record_points[10];
 void Show(void *pvParameters)
 {
 	u8 strong2[100] = {0};
+	vTaskSuspend(NULL);
 	while(1)
 	{
 		sprintf((char *)strong2,"%d",task+1);//0300  
