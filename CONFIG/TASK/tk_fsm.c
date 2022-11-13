@@ -21,21 +21,21 @@ POINTS record_points[10] =
 {
 	//50,		2000,		0,		100,		0,		{0},
 	
-	13,		2000,		1,		100,		2000,		{0},  //  c
+	3,		2000,		1,		100,		2000,		{0},  //  c
 	
-	40,		2000,		0,		100,		2000,		{0},  // b-
+	3,		2000,		0,		100,		2000,		{0},  // b-
 
-	10,		2000,		1,		100,		2000,		{0},  //b-
+	40,		2000,		1,		100,		2000,		{0},  //b-
 	
-	10,		2000,		0,		100,		2000,		{0},  //b
+	20,		2000,		0,		100,		2000,		{0},  //b
 	
-	10,		2000,		0,		100,		2000,		{0},//a
+	40,		2000,		0,		100,		2000,		{0},//a
+	
+	20,		2000,		1,		100,		2000,		{0},//d- 
 	
 	10,		2000,		0,		100,		2000,		{0},//d- 
 	
-	10,		2000,		0,		100,		2000,		{0},//d- 
-	
-	20,		2000,		0,		100,		2000,		{0},//d 
+	10,		2000,		1,		100,		2000,		{0},//d 
 	
 	10,		2000,		0,		100,		2000,		{0},//c
 
@@ -371,23 +371,27 @@ void Hight_Control(int Current_Height,int Lifting_Speed)
 
 void Z_Action(int Current_Height,int Before_Style_Time,int Style_State,int Lifting_Speed,int After_Style_Time)//Lifting_Speed=100
 {
-	float Initial_Time;
+	float Drilling_Time;
 	int pre_time,current_height;
+	int ABS_Adjust_Time;
 	current_height=Current_Height;
 	Hight_Control(current_height,Lifting_Speed);
+	
 	//pre_time=total_time/80*(current_height-25);
-	Initial_Time=total_time/40*current_height;
+	//Initial_Time=total_time/40*current_height;
+	Drilling_Time=500;//返回原点后下降时间
+	ABS_Adjust_Time=total_time*(Current_Height-3)/80;//每一次回到绝对初始点的时间
 	if(Style_State==1)
 	{
-		vTaskDelay(Before_Style_Time);
+		vTaskDelay(Before_Style_Time);//下针前的等待时间
 		vTaskDelay(100);
 		Z_PWM_S_Output(BACKWARD,10,Lifting_Speed);
 		R_PWM_S_Output(BACKWARD,10,50);
-		vTaskDelay(Initial_Time);
+		vTaskDelay(Drilling_Time+ABS_Adjust_Time);//下针的总时间
 		Z_PWM_S_Output(BACKWARD,0,0);
-		vTaskDelay(After_Style_Time);//wait 2s and lift
+		vTaskDelay(After_Style_Time);//下针后等待退针时间
 		Z_PWM_S_Output(UPWARD,10,Lifting_Speed);
-		vTaskDelay(Initial_Time);
+		vTaskDelay(Drilling_Time+ABS_Adjust_Time);//退针时间
 		Z_PWM_S_Output(UPWARD,0,0);
 		R_PWM_S_Output(UPWARD,0,0);
 		//Initial_Height=10;
