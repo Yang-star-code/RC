@@ -1,7 +1,7 @@
 #include "include.h"
 
 extern int task;
-extern POINTS record_points[10];
+extern POINTS record_points[12];
 void Show(void *pvParameters)
 {
 	u8 strong2[100] = {0};

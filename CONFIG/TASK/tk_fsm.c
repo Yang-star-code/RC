@@ -2,7 +2,7 @@
 #include "picture.h"
 Robot_State RobotState;
 Motor_State MotorState;
-POINTS record_points[10] ;             //定义一个结构体数组，存放点的坐标、以及各种成员变量
+POINTS record_points[12] ;             //定义一个结构体数组，存放点的坐标、以及各种成员变量
 POINTS *RECORD_PTR = &record_points[0];    //使一个指针指向结构体数组名（代表数组首元素地址） 用来代替操作  记录指针
 POINTS *BACK_PTR = NULL;        //回城指针 先指向空
 u8 Record_time=0;               //是当前有效记录的点的个数 从0开始
@@ -17,28 +17,31 @@ float i=1.0;
 int task=0;
 //Current_Height（0-50）   Before_Style_Time   Style_State 		Lifting_Speed 				After_Style_Time 
 //针距离孔的高度				下降前停留时间		是否下降				下降速度	  	  		下降后停留时间
-POINTS record_points[10] = 
+POINTS record_points[12] = 
 {
 	//50,		2000,		0,		100,		0,		{0},
 	
-	3,		500,		1,		100,		2000,		{0},  //  A
+	10,		2000,		1,		100,		2000,		{0},  //  D
 	
-	3,		2000,		1,		100,		2000,		{0},  // B
+	20,		2000,		0,		100,		1000,		{0},  // A
 
-	10,		2000,		0,		100,		500,		{0},  //C-
+	3,		2000,		1,		100,		2000,		{0},  // A
 	
-	3,		500,		1,		100,		2000,		{0},  //C
+	10,		2000,		0,		100,		2000,		{0},  //C-
 	
-	3,		500,		1,		100,		2000,		{0},  //D
+	10,		2000,		1,		100,		2000,		{0},  //C
 	
-	20,		2000,		1,		100,		2000,		{0},//d- 
+	10,		2000,		1,		100,		2000,		{0},//E
 	
-	10,		2000,		1,		100,		2000,		{0},//d- 
+	10,		2000,		0,		100,		2000,		{0},//A
 	
-	10,		2000,		1,		100,		2000,		{0},//d 
+	10,		2000,		1,		100,		5000,		{0},//A
 	
-	10,		2000,		0,		100,		2000,		{0},//c
+	20,		2000,		0,		100,		2000,		{0},//B-
 
+	20,   2000,   1,    100,    2000,   {0},//B
+	
+	10,   2000,   0,    100,    2000,   {0},//OUT
 
 };
 
@@ -220,15 +223,15 @@ void FSM(void *pvParameters)
 
 void Velocity_Filter(int L_X,int L_Y,int R_Y)
 {   
-    if(ABS(L_X-1500)>100)
+    if(ABS(L_Y-1500)>100)
         {
-            MotorState.V_X=L_X-1500;
+            MotorState.V_X=-L_Y+1500;
         }
         else
         {MotorState.V_X=0;}
-        if(ABS(L_Y-1500)>100)
+        if(ABS(L_X-1500)>100)
         {
-            MotorState.V_Y=L_Y-1500;
+            MotorState.V_Y=L_X-1500;
         }
         else
         {MotorState.V_Y=0;} 

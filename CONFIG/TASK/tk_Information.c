@@ -25,7 +25,7 @@ void Information(void *pvParameters)
     t1=4.096*2*result/65535;     //转换成电压
 //		  t1=4.096*2*result;     //转换成电压 65535
 		
-		if(t1>=1)  //262140
+		if(t1>=2.5)  //262140
 		{
 			R_PWM_S_Output(BACKWARD,10,20);//period=1000/20
 			
