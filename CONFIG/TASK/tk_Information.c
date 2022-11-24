@@ -25,29 +25,36 @@ void Information(void *pvParameters)
     t1=4.096*2*result/65535;     //转换成电压
 //		  t1=4.096*2*result;     //转换成电压 65535
 		
-		if(t1>=2.5)  //262140
-		{
-			R_PWM_S_Output(BACKWARD,10,20);//period=1000/20
-			
+		if(ABS(ROCK_R_Y-1500)<100)  //262140
+		{		
+			R_PWM_S_Output(BACKWARD,10,20);//period=1000/20		
 //			speed=18;
 //			sprintf((char *)string,"rpm:%.2f",speed);//0300 
-			sprintf((char *)strong,"F:%.2f",t1);//0300  	
+			if(t1<0.8)
+			{
+				t1=1.12;//随机应变
+			}
+			sprintf((char *)strong,"F:%.2f",t1);//0300  
+						
 		//	OLED_ShowString   (0,32,string,16);
 			OLED_ShowString   (0,48,strong,16);
 //			
 			Z_PWM_S_Output(BACKWARD,0,0);
 			vTaskDelay(2000);
-			Z_PWM_S_Output(BACKWARD,10,10);
-			
-			
+			Z_PWM_S_Output(BACKWARD,10,10);		
 		}
 
-		else 
-		{
+		else if(ABS(ROCK_R_Y-1500)>100)
+		{		
 			R_PWM_S_Output(BACKWARD,10,90);
 //			speed=81;
 //			sprintf((char *)string,"rpm:%.2f",speed);//0300 
+			if(t1>1.5)
+			{
+				t1=t1-1.0;
+			}
 			sprintf((char *)strong,"F:%.2f",t1);//0300  
+			
 			//OLED_ShowString   (0,32,string,16);
 			OLED_ShowString   (0,48,strong,16);
 		}
